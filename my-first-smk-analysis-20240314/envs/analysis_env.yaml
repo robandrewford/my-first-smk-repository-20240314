@@ -1,0 +1,8 @@
+name: analysis_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pandas
+  - numpy
+  - matplotlib

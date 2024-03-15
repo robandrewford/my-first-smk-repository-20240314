@@ -1,0 +1,11 @@
+# Define the rule all to specify the final outputs of the workflow
+rule all:
+    input:
+        "results/final_output.txt"
+
+# Add your rules here
+rule analysis:
+    ouput:
+        "results/analysis_output.txt
+    shell:
+        "echo 'Analysis complete.' > {output}"

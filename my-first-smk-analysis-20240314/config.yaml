@@ -1,0 +1,3 @@
+# Configuration parameters for the workflow
+data_dir: data/
+results_dir: results/

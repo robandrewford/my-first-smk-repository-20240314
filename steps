@@ -1,0 +1,39 @@
+# Navigate to where you want to save your analysis locally
+# Make a new local folder for your analysis
+mkdir my-first-smk-analysis-20240314
+# Open the new local folder in VSC
+# If not already installed install Github 
+brew install gh
+# Verify installation
+gh --version
+# login to Github
+gh auth login
+# Create a Github repo
+gh repo create my-first-smk-repository-20240314 --public --add-readme
+# Push local repository to Github
+git remote add origin https://github.com/robandrewford/my-first-smk-repository-20240314.git
+git branch -M main
+git pull origin main --allow-unrelated-histories
+git push -u origin main
+# Work on your project within VSC
+# Create a Snakemake project shell using create_snakemake_project.sh
+## Open the create_snakemake_project.sh script
+## Copy-paste into the terminal
+## Run the command
+create_snakemake_project my-first-smk-analysis-20240314
+# Set up a new python virtual environment
+python -m venv my-first-smk-venv-20240314
+# Activate the new venv
+source my-first-smk-venv-20240314/bin/activate
+# Install snakemake and snakedeploy
+pip install snakemake snakedeploy
+# Manually setup snakefile.snk
+# Run related snakedeploy configuration files cd /Users/robertford/_Projects/analysis/my-first-smk-analysis-20240314/envs
+snakedeploy pin-conda-envs /Users/robertford/_Projects/analysis/my-first-smk-analysis-20240314 (/path/to/your/project)
+snakedeploy update-conda-envs /Users/robertford/_Projects/analysis/my-first-smk-analysis-20240314 (/path/to/your/project)
+snakedeploy update-snakemake-wrappers /Users/robertford/_Projects/analysis/my-first-smk-analysis-20240314 (/path/to/your/project)
+
+# Setup Github Actions
+mkdir -p .github/workflows
+# Create a new workflow file
+touch .github/workflows/main.yml
